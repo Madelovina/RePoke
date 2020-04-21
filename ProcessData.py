@@ -14,7 +14,7 @@ tensorboard = TensorBoard(log_dir="tb_logs\{}".format(NAME))
 filepath = "best_val_acc_model.hdf5"
 modelcheckpoint = ModelCheckpoint(
     filepath,
-    monitor="accuracy",
+    monitor="val_accuracy",
     verbose=0,
     save_best_only=True,
     mode="max",)
@@ -58,7 +58,7 @@ def createModel():
         model.add(Dense(151, activation='softmax'))
 
         model.compile(loss="categorical_crossentropy",  # categorical_crossentropy
-                      optimizer=keras.optimizers.Adadelta(), metrics=['val_accuracy'])
+                      optimizer=keras.optimizers.Adadelta(), metrics=['accuracy'])
         return model
 
 
