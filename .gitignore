@@ -1,4 +1,5 @@
 tb_logs/
+model_storage/
 best_val_acc_model.hdf5
 X.pickle
 y.pickle

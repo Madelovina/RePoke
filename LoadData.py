@@ -5,9 +5,9 @@ import cv2  # BGR
 import random
 import pickle
 
-DATADIR = "D:/kkya5/Pictures/Datasets/Pokemon"
+DATADIR = "D:/kkya5/Pictures/Datasets/PokemonGame"
 CATEGORIES = os.listdir(DATADIR)
-IMG_SIZE = 300
+IMG_SIZE = 100
 
 
 def create_training_data():
@@ -18,8 +18,6 @@ def create_training_data():
         class_num = CATEGORIES.index(category)
         temp_data = []
         for img in os.listdir(path):
-            if len(temp_data) == 50:
-                break
             try:
                 # convert BGR to RGB
                 img_array = cv2.imread(os.path.join(path, img))

@@ -21,7 +21,7 @@ modelcheckpoint = ModelCheckpoint(
 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
-IMG_SIZE = 300
+IMG_SIZE = 100
 
 X = pickle.load(open("X.pickle", "rb"))
 y = pickle.load(open("y.pickle", "rb"))
@@ -57,11 +57,11 @@ def createModel():
         model.add(Dropout(0.5))
         model.add(Dense(151, activation='softmax'))
 
-        model.compile(loss="categorical_crossentropy",  # categorical_crossentropy
+        model.compile(loss="categorical_crossentropy",
                       optimizer=keras.optimizers.Adadelta(), metrics=['accuracy'])
         return model
 
 
 model = createModel()
-model.fit(X, y, batch_size=8, epochs=200,
+model.fit(X, y, batch_size=16, epochs=200,
           validation_split=0.1, callbacks=[tensorboard, modelcheckpoint])
