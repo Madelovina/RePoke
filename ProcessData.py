@@ -63,5 +63,7 @@ def createModel():
 
 
 model = createModel()
-model.fit(X, y, batch_size=16, epochs=200,
+model.fit(X, y, batch_size=16, epochs=1,
           validation_split=0.1, callbacks=[tensorboard, modelcheckpoint])
+
+model.save("RePoke_Gen1.model")

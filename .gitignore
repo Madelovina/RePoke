@@ -1,5 +1,6 @@
 tb_logs/
 model_storage/
+RePoke_Gen1.model/
 best_val_acc_model.hdf5
 X.pickle
 y.pickle
